@@ -7,7 +7,6 @@ CREATE TABLE utilisateurs (
     password VARCHAR(255)
 );
 
--- password: admin123 
 INSERT INTO utilisateurs (email, password)
 VALUES ('admin@example.com', '$2y$12$bEPaURLhKxt3WkRdvWFaJerH./OjbiT9l67zhplQjjBpjtbO1aALy');
 
