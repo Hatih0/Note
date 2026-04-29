@@ -3,9 +3,13 @@ use gestion_note;
 
 CREATE TABLE utilisateurs (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE,
+    email VARCHAR(50) UNIQUE,
     password VARCHAR(255)
 );
+
+-- password: admin123 
+INSERT INTO utilisateurs (email, password)
+VALUES ('admin@example.com', '$2y$12$bEPaURLhKxt3WkRdvWFaJerH./OjbiT9l67zhplQjjBpjtbO1aALy');
 
 CREATE TABLE etudiants (
     id INT AUTO_INCREMENT PRIMARY KEY,
