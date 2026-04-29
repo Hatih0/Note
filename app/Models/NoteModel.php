@@ -24,10 +24,7 @@ class NoteModel extends Model
             ->join('ue', 'ue.id = matieres.ue_id')
             ->where('notes.etudiant_id', $etudiantId)
             ->where('ue.semestre_id', $semestreId)
-<<<<<<< HEAD
             ->orderBy('notes.date_saisie', 'DESC')
-=======
->>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
             ->orderBy('matieres.code', 'ASC')
             ->findAll();
     }
@@ -71,7 +68,6 @@ class NoteModel extends Model
      */
     public function insertOrUpdateNote($etudiantId, $matiereId, $note)
     {
-<<<<<<< HEAD
         return $this->insert([
             'etudiant_id' => $etudiantId,
             'matiere_id' => $matiereId,
@@ -89,24 +85,5 @@ class NoteModel extends Model
             'note' => $note,
             'date_saisie' => date('Y-m-d H:i:s')
         ]);
-=======
-        $existing = $this->where('etudiant_id', $etudiantId)
-            ->where('matiere_id', $matiereId)
-            ->first();
-
-        if ($existing) {
-            return $this->update($existing['id'], [
-                'note' => $note,
-                'date_saisie' => date('Y-m-d H:i:s')
-            ]);
-        } else {
-            return $this->insert([
-                'etudiant_id' => $etudiantId,
-                'matiere_id' => $matiereId,
-                'note' => $note,
-                'date_saisie' => date('Y-m-d H:i:s')
-            ]);
-        }
->>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
     }
 }

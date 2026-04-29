@@ -32,7 +32,6 @@ class Notes extends BaseController
     public function index()
     {
         $semestres = $this->matiereModel->getSemestres();
-<<<<<<< HEAD
         $etudiants = $this->etudiantModel
             ->select('id, matricule, nom, prenom')
             ->orderBy('matricule', 'ASC')
@@ -41,11 +40,6 @@ class Notes extends BaseController
         return view('notes/formulaire', [
             'semestres' => $semestres,
             'etudiants' => $etudiants
-=======
-
-        return view('notes/formulaire', [
-            'semestres' => $semestres
->>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
         ]);
     }
 
@@ -125,7 +119,6 @@ class Notes extends BaseController
     }
 
     /**
-<<<<<<< HEAD
      * Modifie une note existante
      */
     public function modifierNote()
@@ -175,8 +168,6 @@ class Notes extends BaseController
     }
 
     /**
-=======
->>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
      * Récupère les notes d'un étudiant pour un semestre
      */
     public function getNotesByEtudiant()
