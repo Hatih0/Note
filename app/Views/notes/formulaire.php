@@ -48,6 +48,7 @@
                 </div>
 
                 <div class="form-group">
+<<<<<<< HEAD
                     <label for="etudiant">Matricule de l'étudiant :</label>
                     <select id="etudiant" class="form-control">
                         <option value="">-- Choisir un étudiant --</option>
@@ -57,6 +58,10 @@
                             </option>
                         <?php endforeach; ?>
                     </select>
+=======
+                    <label for="etudiant">Matricule ou ID de l'étudiant :</label>
+                    <input type="text" id="etudiant" class="form-control" placeholder="Ex: MAT001 ou 1" />
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
                 </div>
 
                 <button id="charger-btn" class="btn btn-primary">Charger les Matières</button>

@@ -4,7 +4,11 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const semestreSelect = document.getElementById('semestre');
+<<<<<<< HEAD
     const etudiantSelect = document.getElementById('etudiant');
+=======
+    const etudiantInput = document.getElementById('etudiant');
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
     const chargerBtn = document.getElementById('charger-btn');
     const notesSection = document.getElementById('notes-section');
     const matieresList = document.getElementById('matieres-list');
@@ -13,12 +17,19 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSemestreId = null;
     let currentEtudiantId = null;
     let matieres = [];
+<<<<<<< HEAD
     let notesByMatiere = {};
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
 
     // ===== Événement : Charger les matières ===== 
     chargerBtn.addEventListener('click', function() {
         const semestreId = semestreSelect.value;
+<<<<<<< HEAD
         const etudiantId = etudiantSelect.value.trim();
+=======
+        const etudiantId = etudiantInput.value.trim();
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
 
         // Validation
         if (!semestreId) {
@@ -27,7 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (!etudiantId) {
+<<<<<<< HEAD
             showMessage('Veuillez sélectionner un étudiant', 'error');
+=======
+            showMessage('Veuillez entrer le matricule ou l\'ID de l\'étudiant', 'error');
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
             return;
         }
 
@@ -48,7 +63,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (data.success) {
                     matieres = data.matieres;
+<<<<<<< HEAD
                     loadExistingNotes(semestreId);
+=======
+                    renderMatieres(matieres);
+                    notesSection.style.display = 'block';
+                    showMessage('Matières chargées avec succès', 'success');
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
                 } else {
                     showMessage('Erreur lors du chargement des matières', 'error');
                 }
@@ -60,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
+<<<<<<< HEAD
     function loadExistingNotes(semestreId) {
         fetch(`/notes/get-notes?semestre_id=${semestreId}&etudiant_id=${encodeURIComponent(currentEtudiantId)}`)
             .then(response => response.json())
@@ -88,6 +110,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
     // ===== Rendu des matières ===== 
     function renderMatieres(matieres) {
         if (matieres.length === 0) {
@@ -98,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         matieresList.innerHTML = '';
 
         matieres.forEach(matiere => {
+<<<<<<< HEAD
             const notes = notesByMatiere[matiere.id] || [];
             const notesHtml = notes.length > 0
                 ? `
@@ -117,6 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 `
                 : '<div class="notes-history empty">Aucune note enregistrée</div>';
 
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
             const item = document.createElement('div');
             item.className = 'matiere-item';
             item.innerHTML = `
@@ -133,10 +160,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="credits-label">Crédits</div>
                     <div class="credits-value">${matiere.credits}</div>
                 </div>
+<<<<<<< HEAD
 
                 <div class="matiere-notes-block">
                     ${notesHtml}
                 </div>
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
                 
                 <div class="matiere-input-group">
                     <input type="number" 
@@ -148,7 +178,11 @@ document.addEventListener('DOMContentLoaded', function() {
                            placeholder="0-20" />
                     <button class="btn btn-sm btn-save" 
                             data-matiere-id="${matiere.id}">
+<<<<<<< HEAD
                         Ajouter
+=======
+                        Enregistrer
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
                     </button>
                 </div>
             `;
@@ -163,7 +197,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== Attacher les écouteurs aux boutons ===== 
     function attachEventListeners() {
         const saveButtons = document.querySelectorAll('.btn-save');
+<<<<<<< HEAD
         const editButtons = document.querySelectorAll('.btn-edit-note');
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
         
         saveButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -180,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+<<<<<<< HEAD
         editButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const noteId = this.dataset.noteId;
@@ -188,6 +226,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
         // Permettre l'enregistrement avec Entrée
         const noteInputs = document.querySelectorAll('.note-input');
         noteInputs.forEach(input => {
@@ -225,9 +265,16 @@ document.addEventListener('DOMContentLoaded', function() {
             showLoading(button, false);
 
             if (data.success) {
+<<<<<<< HEAD
                 showMessage(`Nouvelle note de ${noteValue}/20 ajoutée avec succès`, 'success');
                 input.value = '';
                 reloadNotes();
+=======
+                showMessage(`Note de ${noteValue}/20 enregistrée avec succès pour la matière`, 'success');
+                
+                // Mettre à jour l'affichage
+                updateNoteDisplay(matiereId, noteValue);
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
             } else {
                 showMessage(`Erreur: ${data.message}`, 'error');
             }
@@ -239,6 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+<<<<<<< HEAD
     function beginEditNote(noteId, noteValue, button) {
         const row = button.closest('.note-row');
         if (!row) {
@@ -324,6 +372,18 @@ document.addEventListener('DOMContentLoaded', function() {
             hour: '2-digit',
             minute: '2-digit'
         });
+=======
+    // ===== Mettre à jour l'affichage de la note ===== 
+    function updateNoteDisplay(matiereId, note) {
+        const input = document.querySelector(`.note-input[data-matiere-id="${matiereId}"]`);
+        const item = input.closest('.matiere-item');
+        
+        // Ajouter une animation de succès
+        item.style.backgroundColor = 'rgba(40, 167, 69, 0.1)';
+        setTimeout(() => {
+            item.style.backgroundColor = '';
+        }, 1500);
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
     }
 
     // ===== Afficher/Masquer le loading ===== 
@@ -357,7 +417,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ===== Gestion des changements d'étudiant ===== 
+<<<<<<< HEAD
     etudiantSelect.addEventListener('change', function() {
+=======
+    etudiantInput.addEventListener('input', function() {
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
         messageDiv.style.display = 'none';
     });
 });

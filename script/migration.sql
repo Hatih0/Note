@@ -201,6 +201,24 @@ SELECT id, 'MTH205', 'Equations différentielles' FROM ue WHERE code = 'MTH205' 
 INSERT INTO matieres (ue_id, code, libelle) 
 SELECT id, 'MTH206', 'Optimisation' FROM ue WHERE code = 'MTH206' LIMIT 1;
 
+<<<<<<< HEAD
+=======
+-- =====================================================
+-- 9. INSERTION D'UTILISATEURS ADMINISTRATEURS
+-- =====================================================
+-- Les mots de passe doivent être hashés en production
+INSERT INTO utilisateurs (username, password) 
+VALUES ('admin', SHA2('admin123', 256));
+
+INSERT INTO utilisateurs (username, password) 
+VALUES ('responsable_dev', SHA2('password', 256));
+
+INSERT INTO utilisateurs (username, password) 
+VALUES ('responsable_bddres', SHA2('password', 256));
+
+INSERT INTO utilisateurs (username, password) 
+VALUES ('responsable_web', SHA2('password', 256));
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
 
 -- =====================================================
 -- 10. VÉRIFICATIONS ET AFFICHAGE DES DONNÉES INSÉRÉES
@@ -234,5 +252,8 @@ SELECT id, username FROM utilisateurs;
 -- =====================================================
 -- FIN DE LA MIGRATION
 -- =====================================================
+<<<<<<< HEAD
 
 insert into etudiants (matricule, nom, prenom) values ('2023-001', 'Rasoa', 'Andry');
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679

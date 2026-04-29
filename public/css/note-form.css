@@ -234,6 +234,7 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
 .matiere-notes-block {
     display: flex;
     flex-direction: column;
@@ -316,6 +317,8 @@
     text-align: center;
 }
 
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
 .note-input {
     width: 90px;
     padding: 0.6rem;
