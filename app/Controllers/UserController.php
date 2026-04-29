@@ -37,7 +37,7 @@ class UserController extends BaseController
                 'email'        => $email,
                 'is_logged_in' => true,
             ]);
-            return redirect()->to('/dashboard');
+            return redirect()->to('/notes');
         }
         $user = $this->userModel->checkUser($email, $password);
 
@@ -52,7 +52,7 @@ class UserController extends BaseController
             'is_logged_in' => true,
         ]);
 
-        return redirect()->to('/dashboard');
+        return redirect()->to('/notes');
     }
 
 }
