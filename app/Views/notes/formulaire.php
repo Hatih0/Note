@@ -48,8 +48,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="etudiant">Matricule ou ID de l'étudiant :</label>
-                    <input type="text" id="etudiant" class="form-control" placeholder="Ex: MAT001 ou 1" />
+                    <label for="etudiant">Matricule de l'étudiant :</label>
+                    <select id="etudiant" class="form-control">
+                        <option value="">-- Choisir un étudiant --</option>
+                        <?php foreach ($etudiants as $etudiant): ?>
+                            <option value="<?= esc($etudiant['matricule']) ?>">
+                                <?= esc($etudiant['matricule']) ?> - <?= esc($etudiant['nom'] . ' ' . $etudiant['prenom']) ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
 
                 <button id="charger-btn" class="btn btn-primary">Charger les Matières</button>

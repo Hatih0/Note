@@ -234,6 +234,88 @@
     align-items: center;
 }
 
+.matiere-notes-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.notes-history {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+}
+
+.notes-history.empty {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.note-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.55rem 0.75rem;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.note-row-value {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.note-row-value strong {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.note-row-value.editing {
+    flex: 1;
+}
+
+.note-row-date {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.note-row-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.btn-edit-note {
+    background-color: var(--warning-color, #f0ad4e);
+    color: white;
+}
+
+.btn-confirm-edit {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-cancel-edit {
+    background-color: #6c757d;
+    color: white;
+}
+
+.note-edit-input {
+    width: 120px;
+    padding: 0.6rem;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
 .note-input {
     width: 90px;
     padding: 0.6rem;

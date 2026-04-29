@@ -12,3 +12,4 @@ $routes->get('/notes', 'Notes::index');
 $routes->get('/notes/get-matieres', 'Notes::getMatieresBySemestre');
 $routes->get('/notes/get-notes', 'Notes::getNotesByEtudiant');
 $routes->post('/notes/inserer', 'Notes::insererNote');
+$routes->post('/notes/modifier', 'Notes::modifierNote');

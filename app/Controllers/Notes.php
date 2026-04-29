@@ -32,9 +32,14 @@ class Notes extends BaseController
     public function index()
     {
         $semestres = $this->matiereModel->getSemestres();
+        $etudiants = $this->etudiantModel
+            ->select('id, matricule, nom, prenom')
+            ->orderBy('matricule', 'ASC')
+            ->findAll();
 
         return view('notes/formulaire', [
-            'semestres' => $semestres
+            'semestres' => $semestres,
+            'etudiants' => $etudiants
         ]);
     }
 
@@ -105,6 +110,55 @@ class Notes extends BaseController
                     'message' => 'Erreur lors de l\'enregistrement'
                 ]);
             }
+        } catch (\Exception $e) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Erreur : ' . $e->getMessage()
+            ]);
+        }
+    }
+
+    /**
+     * Modifie une note existante
+     */
+    public function modifierNote()
+    {
+        $noteId = $this->request->getPost('note_id');
+        $note = $this->request->getPost('note');
+
+        if (!$noteId || $note === '' || $note === null) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Note introuvable ou données invalides'
+            ]);
+        }
+
+        $note = floatval($note);
+
+        if ($note < 0 || $note > 20) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'La note doit être entre 0 et 20'
+            ]);
+        }
+
+        try {
+            $result = $this->noteModel->updateNoteById($noteId, $note);
+
+            if ($result) {
+                $noteBD = $this->noteModel->find($noteId);
+
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'Note modifiée avec succès',
+                    'note' => $noteBD
+                ]);
+            }
+
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Erreur lors de la modification'
+            ]);
         } catch (\Exception $e) {
             return $this->response->setJSON([
                 'success' => false,
