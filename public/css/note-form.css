@@ -2,15 +2,17 @@
    THÈME PERSONNALISÉ - FORMULAIRE DE NOTES
    ===================================================== */
 
-/* Couleurs du thème (synchronisé avec le thème existant) */
+/* Couleurs du thème (synchronisé avec form.html) */
 :root {
     --primary-color: #dd4814;
     --primary-light: rgba(221, 72, 20, 0.2);
     --primary-dark: #b83a0f;
-    --bg-light: #f7f8f9;
-    --border-color: #f2f2f2;
-    --text-dark: rgba(33, 37, 41, 1);
-    --text-light: rgba(0, 0, 0, 0.5);
+    --bg-main: #f5f7fa;
+    --bg-card: #ffffff;
+    --bg-light: #fafbfc;
+    --border-color: #e1e8ed;
+    --text-dark: #212529;
+    --text-light: #6c757d;
     --success-color: #28a745;
     --error-color: #dc3545;
     --info-color: #17a2b8;
@@ -22,6 +24,7 @@
     margin: 0 auto;
     padding: 2rem;
     min-height: 100vh;
+    background-color: var(--bg-main);
 }
 
 /* ===== Header ===== */
@@ -47,7 +50,7 @@
 
 /* ===== Main Content ===== */
 .note-main {
-    background: white;
+    background: var(--bg-card);
     border-radius: 8px;
     padding: 2rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -80,11 +83,11 @@
 .form-control {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 0.95rem;
     font-family: inherit;
-    background: white;
+    background: var(--bg-card);
     color: var(--text-dark);
     transition: border-color 300ms ease, box-shadow 300ms ease;
     box-sizing: border-box;
@@ -97,7 +100,8 @@
 }
 
 .form-control:hover {
-    border-color: var(--primary-color);
+    border-color: #d1d5db;
+    background-color: var(--bg-light);
 }
 
 /* ===== Bouton ===== */
@@ -173,14 +177,15 @@
     gap: 1rem;
     align-items: center;
     padding: 1.5rem;
-    background: var(--bg-light);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
     border-left: 4px solid var(--primary-color);
     border-radius: 4px;
     transition: all 300ms ease;
 }
 
 .matiere-item:hover {
-    background: white;
+    background: var(--bg-light);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-left-color: var(--primary-dark);
 }
