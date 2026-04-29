@@ -1,0 +1,524 @@
+/* =====================================================
+   THÈME PERSONNALISÉ - FORMULAIRE DE NOTES
+   ===================================================== */
+
+/* Couleurs du thème (synchronisé avec form.html) */
+:root {
+    --primary-color: #dd4814;
+    --primary-light: rgba(221, 72, 20, 0.2);
+    --primary-dark: #b83a0f;
+    --bg-main: #f5f7fa;
+    --bg-card: #ffffff;
+    --bg-light: #fafbfc;
+    --border-color: #e1e8ed;
+    --text-dark: #212529;
+    --text-light: #6c757d;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* ===== Conteneur Principal ===== */
+.container-note {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    background-color: var(--bg-main);
+}
+
+/* ===== Header ===== */
+.note-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.note-header p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+/* ===== Main Content ===== */
+.note-main {
+    background: var(--bg-card);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Section de Sélection ===== */
+.selection-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: var(--bg-card);
+    color: var(--text-dark);
+    transition: border-color 300ms ease, box-shadow 300ms ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    outline: none;
+}
+
+.form-control:hover {
+    border-color: #d1d5db;
+    background-color: var(--bg-light);
+}
+
+/* ===== Bouton ===== */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-family: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    min-width: 180px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 2px 8px rgba(221, 72, 20, 0.3);
+}
+
+.btn-primary:focus {
+    background-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    outline: none;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    min-width: auto;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* ===== Section des Matières ===== */
+.notes-section {
+    animation: fadeIn 300ms ease-in;
+}
+
+.notes-section h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.matieres-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ===== Carte Matière ===== */
+.matiere-item {
+    display: grid;
+    grid-template-columns: 150px 1fr 120px auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 4px;
+    transition: all 300ms ease;
+}
+
+.matiere-item:hover {
+    background: var(--bg-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left-color: var(--primary-dark);
+}
+
+.matiere-code {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.matiere-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.matiere-libelle {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.matiere-details {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.matiere-credits {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.credits-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.credits-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.matiere-input-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+<<<<<<< HEAD
+.matiere-notes-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.notes-history {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+}
+
+.notes-history.empty {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.note-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.55rem 0.75rem;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.note-row-value {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.note-row-value strong {
+    color: var(--primary-color);
+    font-size: 1rem;
+}
+
+.note-row-value.editing {
+    flex: 1;
+}
+
+.note-row-date {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.note-row-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.btn-edit-note {
+    background-color: var(--warning-color, #f0ad4e);
+    color: white;
+}
+
+.btn-confirm-edit {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-cancel-edit {
+    background-color: #6c757d;
+    color: white;
+}
+
+.note-edit-input {
+    width: 120px;
+    padding: 0.6rem;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+=======
+>>>>>>> 7ec1c4798172e4a891eb25b69eba843db9aca679
+.note-input {
+    width: 90px;
+    padding: 0.6rem;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.note-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    outline: none;
+}
+
+.note-input::placeholder {
+    color: var(--text-light);
+}
+
+.btn-save {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+.note-display {
+    display: inline-block;
+    min-width: 60px;
+    padding: 0.5rem 1rem;
+    background: var(--primary-light);
+    border-radius: 4px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* ===== Messages ===== */
+.message {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.message.success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+
+.message.error {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--error-color);
+    border-left: 4px solid var(--error-color);
+}
+
+.message.info {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: var(--info-color);
+    border-left: 4px solid var(--info-color);
+}
+
+/* ===== Loading State ===== */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .matiere-item {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .matiere-code {
+        grid-column: 1;
+    }
+
+    .matiere-info {
+        grid-column: 1;
+    }
+
+    .matiere-credits {
+        grid-column: 1;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .matiere-input-group {
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-note {
+        padding: 1rem;
+    }
+
+    .note-header {
+        padding: 1.5rem;
+    }
+
+    .note-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .note-main {
+        padding: 1.5rem;
+    }
+
+    .selection-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    .matiere-item {
+        grid-template-columns: 1fr;
+    }
+
+    .note-input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .note-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .notes-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .matiere-item {
+        padding: 1rem;
+    }
+
+    .form-control,
+    .btn {
+        font-size: 16px;
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    .selection-section,
+    .btn,
+    .note-input {
+        display: none;
+    }
+
+    .matiere-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}

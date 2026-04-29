@@ -7,6 +7,9 @@ CREATE TABLE utilisateurs (
     password VARCHAR(255)
 );
 
+INSERT INTO utilisateurs (email, password)
+VALUES ('admin@example.com', '$2y$12$bEPaURLhKxt3WkRdvWFaJerH./OjbiT9l67zhplQjjBpjtbO1aALy');
+
 CREATE TABLE etudiants (
     id INT AUTO_INCREMENT PRIMARY KEY,
     matricule VARCHAR(50) UNIQUE,
